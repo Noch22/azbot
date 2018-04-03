@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 var prefix = ("**");
 
 bot.on('ready', function() {
-    bot.user.setGame("Commande : **help \n ");
+    bot.user.setGame("Bienvenu à vous sur le serveur de Noch' 😜");
     console.log("Connected");
 
 });
