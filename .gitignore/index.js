@@ -44,7 +44,6 @@ bot.on('message', message => {
             .setDescription("Sondage")
             .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
             .setColor("0xB40404")
-            .setTimestamp()
         message.guild.channels.find("name", "general").sendEmbed(embed1)
         .then(function (message) {
             message.react("✅")
