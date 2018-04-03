@@ -58,6 +58,27 @@ bot.on('message', message => {
 
     }
     
+    if (message.content.startsWith(prefix + "imp")) {
+        if(message.author.id == "267386028237651988"){
+            let args = message.content.split(" ").slice(1);
+            let thingToEcho = args.join(" ")
+            var embed1 = new Discord.RichEmbed()
+            .setDescription("VOTRE ATTENTION @everyone")
+            .addField(thingToEcho)
+            .setColor("0xB40404")
+        message.guild.channels.find("name", "general").sendEmbed(embed1)
+        .then(function (message) {
+            message.react("⚠️")
+        
+        }).catch(function() {
+        });
+        }else{
+            return message.reply("Tu n'as pas la permission.")
+        }
+
+
+    }
+    
 });
 
 bot.on("guildMemberAdd", member => {
