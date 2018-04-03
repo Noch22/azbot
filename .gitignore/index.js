@@ -68,7 +68,7 @@ bot.on('message', message => {
             .setColor("0xB40404")
         message.guild.channels.find("name", "general").sendEmbed(embed1)
         .then(function (message) {
-            message.react("⚠️")
+            message.react("⚠")
         
         }).catch(function() {
         });
