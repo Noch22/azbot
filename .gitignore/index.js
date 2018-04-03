@@ -58,13 +58,13 @@ bot.on('message', message => {
 
     }
     
-    if (message.content.startsWith(prefix + "imp")) {
+   if (message.content.startsWith(prefix + "imp")) {
         if(message.author.id == "267386028237651988"){
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             var embed1 = new Discord.RichEmbed()
             .setDescription("VOTRE ATTENTION @everyone")
-            .addField(thingToEcho, ".")
+            .addField(thingToEcho, true)
             .setColor("0xff9d00")
         message.guild.channels.find("name", "general").sendEmbed(embed1)
         .then(function (message) {
