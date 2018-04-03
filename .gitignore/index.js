@@ -63,7 +63,8 @@ bot.on('message', message => {
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             var embed1 = new Discord.RichEmbed()
-            .addField("VOTRE Attention @everyone", thingToEcho, true)
+            .setDescription("VOTRE ATTENTION @everyone")
+            .addField("👇⚠️👇", thingToEcho, true)
             .setColor("0xff9d00")
         message.guild.channels.find("name", "general").sendEmbed(embed1)
         .then(function (message) {
