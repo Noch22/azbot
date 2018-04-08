@@ -24,7 +24,8 @@ bot.on('message', message => {
     }
 
      if (message.content === prefix + "regles"){
-        var embed = new Discord.RichEmbed()
+        message.author.createDM().then(channel -> {
+         var embed = new Discord.RichEmbed()
             .setTitle("⚠️ Règles ⚠️")
             .setDescription("Les règles sont simples :")
             .addField("Être poli(e)", "Réspecter tout le monde", true)
@@ -34,7 +35,7 @@ bot.on('message', message => {
             .setColor('0x#42f49b')
             .setThumbnail("https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png")
         message.channel.sendEmbed(embed);
-    }
+        })}
     
     if (message.content.startsWith(prefix + "sondage")) {
         if(message.author.id == "267386028237651988"){
