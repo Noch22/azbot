@@ -34,7 +34,6 @@ bot.on('message', message => {
             .setColor('0x#42f49b')
             .setThumbnail("https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png")
         message.channel.sendEmbed(embed);
-            message.reply("Les règles ton été envoyées en privé :grinning:")
         }
     
     if (message.content.startsWith(prefix + "sondage")) {
