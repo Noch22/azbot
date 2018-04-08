@@ -24,7 +24,6 @@ bot.on('message', message => {
     }
 
      if (message.content === prefix + "regles"){
-        message.author.createDM().then(channel -> {
          var embed = new Discord.RichEmbed()
             .setTitle("⚠️ Règles ⚠️")
             .setDescription("Les règles sont simples :")
@@ -36,7 +35,7 @@ bot.on('message', message => {
             .setThumbnail("https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png")
         message.channel.sendEmbed(embed);
             message.reply("Les règles ton été envoyées en privé :grinning:")
-        })}
+        }
     
     if (message.content.startsWith(prefix + "sondage")) {
         if(message.author.id == "267386028237651988"){
