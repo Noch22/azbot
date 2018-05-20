@@ -69,7 +69,7 @@ if (message.content === "salut"){
       let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       if(!kUser) return message.channel.send("Impossible de trouver l'utilisateur !");
       let kReason = args.join(" ").slice(22);
-      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Tu ne peux pas faire ça malheureux !");
       if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Cette personne ne peux pas être kick !");
   
       let kickEmbed = new Discord.RichEmbed()
@@ -82,7 +82,7 @@ if (message.content === "salut"){
       .addField("Pour", kReason);
   
       let kickChannel = message.guild.channels.find(`name`, "incidents");
-      if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+      if(!kickChannel) return message.channel.send("Impossible de trouver le salon");
       message.guild.member(kUser).kick(kReason);
       kickChannel.send(kickEmbed);
       message.guild.channels.find("name", "general").send(`${kUser} expulsé pour ${kReason} :angry: `)
@@ -95,7 +95,7 @@ if (message.content === "salut"){
       let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       if(!bUser) return message.channel.send("Impossible de trouver l'utilisateur !");
       let bReason = args.join(" ").slice(22);
-      if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
+      if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Tu ne peux pas faire ça malheureux !");
       if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Cette personne ne peut pas être banni(e) !");
   
       let banEmbed = new Discord.RichEmbed()
