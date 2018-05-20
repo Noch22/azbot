@@ -4,12 +4,12 @@ const bot = new Discord.Client();
 var prefix = ("=");
 
 bot.on('ready', function() {
-    bot.user.setGame('😀HelpBot😀 prefix : "="')
+    bot.user.setGame('HelpBot | =help')
     console.log("Connected");
 
 });
 
-bot.login(process.env.TOKEN);
+bot.login("NDQyNDI4NjA3NTgzNzQ4MTE3.Dc-rUg.ILKvwHCkXI6UIBnLJ0GkwITWyjk");
 
 
 bot.on('message', message => {
@@ -30,25 +30,84 @@ if (message.content === "salut"){
         .addField("Être poli(e)", "Réspecter tout le monde", true)
         .addField("Respecter le staff", "Ecouter ce qu'on vous dit et le respecter", true)
         .addField("Ne pas insulter quiconque", "Sous peine de bannissement", true)
+        .addField("N'hésitez pas :", "ABONNEZ-VOUS A MA CHAINE [YOUTUBE](https://www.youtube.com/c/NochYoutube)", true)
         .setColor('0x#42f49b')
         .setThumbnail("https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png")
     message.channel.sendEmbed(embed);
+}
+
+if (message.content.startsWith(prefix + "sondage")) {
+    if(!messages.author("MANAGE_MESSAGES")){
+        let args = message.content.split(" ").slice(1);
+        let thingToEcho = args.join(" ")
+        var embed1 = new Discord.RichEmbed()
+        .setDescription("Sondage")
+        .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
+        .setColor("0xB40404")
+        .setTimestamp()
+    message.guild.channels.find("name", "general").sendEmbed(embed1)
+    .then(function (message) {
+        message.react("✅")
+        message.react("❌")
+    
+    }).catch(function() {
+    });
+    }else{
+        return message.reply("Tu n'as pas la permission.")
+    }
+
+
+}
+
+if (message.content.startsWith(prefix + "imp")) {
+    if(!message.author.hasPermission("MANAGE_MESSAGES")){
+        let args = message.content.split(" ").slice(1);
+        let thingToEcho = args.join(" ")
+        var embed1 = new Discord.RichEmbed()
+        .setDescription("VOTRE ATTENTION @everyone")
+        .addField("", thingToEcho, true)
+        .setColor("0xff9d00")
+    message.guild.channels.find("name", "general").sendEmbed(embed1)
+    .then(function (message) {
+        message.react("⚠")
+    
+    }).catch(function() {
+    });
+    }else{
+        return message.reply("Tu n'as pas la permission.")
+    }
+
+
 }
   
   
   if(message.content === prefix + "help"){
         var embed2 = new Discord.RichEmbed()
         .setTitle("📌 Commandes 📌")
+        .addField("_ _", "_ _")
+        .addField("_ _", "_ _")
         .addField("Help", "Afficher ce message : =help")
+        .addField("_ _", "_ _")
         .addField("Report", "Raporter un joueur aux modérateurs et plus : =report [@utilisateur] [raison]")
+        .addField("_ _", "_ _")
         .addField("Botinfo", "Voir les informations du bot : =botinfo")
+        .addField("_ _", "_ _")
         .addField("❌ Modération ❌", "Pour les grades à partir de Modérateur")
+        .addField("_ _", "_ _")
+        .addField("_ _", "_ _")
         .addField("Kick", "Permet de kick un utilisateur : =kick [@utilisateur] [raison]")
+        .addField("_ _", "_ _")
         .addField("Ban", "Permet de bannir un utilisateur : =ban [@utilisateur] [raison]")
+        .addField("_ _", "_ _")
         .addField("Règles", "Permet de publier des règles 'de bases'.")
+        .addField("_ _", "_ _")
         .addField("⚠️ENCORE EN DEVELOPPEMENT⚠️", "Les commandes ci-dessous ne sont pas encore disponibles, j'en suis désolé")
+        .addField("_ _", "_ _")
+        .addField("_ _", "_ _")
         .addField("Imp", "Permet d'envoyer un message sous forme d'embed avec une mention : =imp [message]", true)
+        .addField("_ _", "_ _")
         .addField("Sondage", "Permet de faire un sondage : =sondage [question]")
+        .setFooter("HelpBot | By Noch'")
         .setColor("#00c7ff")
       
         message.author.sendMessage(embed2);
@@ -69,7 +128,7 @@ if (message.content === "salut"){
       let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       if(!kUser) return message.channel.send("Impossible de trouver l'utilisateur !");
       let kReason = args.join(" ").slice(22);
-      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Tu ne peux pas faire ça malheureux !");
+      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
       if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Cette personne ne peux pas être kick !");
   
       let kickEmbed = new Discord.RichEmbed()
@@ -82,7 +141,7 @@ if (message.content === "salut"){
       .addField("Pour", kReason);
   
       let kickChannel = message.guild.channels.find(`name`, "incidents");
-      if(!kickChannel) return message.channel.send("Impossible de trouver le salon");
+      if(!kickChannel) return message.channel.send("Can't find incidents channel.");
       message.guild.member(kUser).kick(kReason);
       kickChannel.send(kickEmbed);
       message.guild.channels.find("name", "general").send(`${kUser} expulsé pour ${kReason} :angry: `)
@@ -95,7 +154,7 @@ if (message.content === "salut"){
       let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       if(!bUser) return message.channel.send("Impossible de trouver l'utilisateur !");
       let bReason = args.join(" ").slice(22);
-      if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Tu ne peux pas faire ça malheureux !");
+      if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
       if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Cette personne ne peut pas être banni(e) !");
   
       let banEmbed = new Discord.RichEmbed()
