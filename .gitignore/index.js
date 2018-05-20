@@ -90,7 +90,7 @@ if (message.content.startsWith(prefix + "imp")) {
         .addField("Kick", "Permet de kick un utilisateur : =kick [@utilisateur] [raison]")
         .addField("Ban", "Permet de bannir un utilisateur : =ban [@utilisateur] [raison]")
         .addField("Règles", "Permet de publier des règles 'de bases'.")
-        .addField("Imp", "Permet d'envoyer un message sous forme d'embed avec une mention : =imp [message]")
+        .addField("Imp", "Permet d'envoyer un message sous forme d'embed avec une mention : =imp [message]", true)
         .addField("Sondage", "Permet de faire un sondage : =sondage [question]")
         .setColor("#00c7ff")
       
