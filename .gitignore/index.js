@@ -30,7 +30,6 @@ if (message.content === "salut"){
         .addField("Être poli(e)", "Réspecter tout le monde", true)
         .addField("Respecter le staff", "Ecouter ce qu'on vous dit et le respecter", true)
         .addField("Ne pas insulter quiconque", "Sous peine de bannissement", true)
-        .addField("N'hésitez pas :", "ABONNEZ-VOUS A MA CHAINE [YOUTUBE](https://www.youtube.com/c/NochYoutube)", true)
         .setColor('0x#42f49b')
         .setThumbnail("https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png")
     message.channel.sendEmbed(embed);
@@ -90,6 +89,9 @@ if (message.content.startsWith(prefix + "imp")) {
         .addField("❌ Modération ❌", "Pour les grades à partir de Modérateur")
         .addField("Kick", "Permet de kick un utilisateur : =kick [@utilisateur] [raison]")
         .addField("Ban", "Permet de bannir un utilisateur : =ban [@utilisateur] [raison]")
+        .addField("Règles", "Permet de publier des règles 'de bases'.")
+        .addField("Imp", "Permet d'envoyer un message sous forme d'embed avec une mention : =imp [message]")
+        .addField("Sondage", "Permet de faire un sondage : =sondage [question]")
         .setColor("#00c7ff")
       
         message.author.sendMessage(embed2);
