@@ -34,50 +34,6 @@ if (message.content === "salut"){
         .setThumbnail("https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png")
     message.channel.sendEmbed(embed);
 }
-
-if (message.content.startsWith(prefix + "sondage")) {
-    if(!message.author.hasPermission("MANAGE_MESSAGES")){
-        let args = message.content.split(" ").slice(1);
-        let thingToEcho = args.join(" ")
-        var embed1 = new Discord.RichEmbed()
-        .setDescription("Sondage")
-        .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
-        .setColor("0xB40404")
-        .setTimestamp()
-    message.guild.channels.find("name", "general").sendEmbed(embed1)
-    .then(function (message) {
-        message.react("✅")
-        message.react("❌")
-    
-    }).catch(function() {
-    });
-    }else{
-        return message.reply("Tu n'as pas la permission.")
-    }
-
-
-}
-
-if (message.content.startsWith(prefix + "imp")) {
-    if(!message.author.hasPermission("MANAGE_MESSAGES")){
-        let args = message.content.split(" ").slice(1);
-        let thingToEcho = args.join(" ")
-        var embed1 = new Discord.RichEmbed()
-        .setDescription("VOTRE ATTENTION @everyone")
-        .addField("", thingToEcho, true)
-        .setColor("0xff9d00")
-    message.guild.channels.find("name", "general").sendEmbed(embed1)
-    .then(function (message) {
-        message.react("⚠")
-    
-    }).catch(function() {
-    });
-    }else{
-        return message.reply("Tu n'as pas la permission.")
-    }
-
-
-}
   
   
   if(message.content === prefix + "help"){
@@ -90,6 +46,7 @@ if (message.content.startsWith(prefix + "imp")) {
         .addField("Kick", "Permet de kick un utilisateur : =kick [@utilisateur] [raison]")
         .addField("Ban", "Permet de bannir un utilisateur : =ban [@utilisateur] [raison]")
         .addField("Règles", "Permet de publier des règles 'de bases'.")
+        .addField("⚠️ENCORE EN DEVELOPPEMENT⚠️", "Les commandes ci-dessous ne sont pas encore disponibles, j'en suis désolé")
         .addField("Imp", "Permet d'envoyer un message sous forme d'embed avec une mention : =imp [message]", true)
         .addField("Sondage", "Permet de faire un sondage : =sondage [question]")
         .setColor("#00c7ff")
