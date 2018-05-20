@@ -90,7 +90,6 @@ if (message.content.startsWith(prefix + "imp")) {
         .addField("❌ Modération ❌", "Pour les grades à partir de Modérateur")
         .addField("Kick", "Permet de kick un utilisateur : =kick [@utilisateur] [raison]")
         .addField("Ban", "Permet de bannir un utilisateur : =ban [@utilisateur] [raison]")
-        .addField("🎲Jeux🎲", "Pour s'amuser tout seul ou entre amis !")
         .setColor("#00c7ff")
       
         message.author.sendMessage(embed2);
