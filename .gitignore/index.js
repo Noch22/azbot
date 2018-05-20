@@ -36,7 +36,7 @@ if (message.content === "salut"){
 }
 
 if (message.content.startsWith(prefix + "sondage")) {
-    if(message.member.hasPermission("MANAGE_MESSAGES")){
+    if(!message.author.hasPermission("MANAGE_MESSAGES")){
         let args = message.content.split(" ").slice(1);
         let thingToEcho = args.join(" ")
         var embed1 = new Discord.RichEmbed()
@@ -59,7 +59,7 @@ if (message.content.startsWith(prefix + "sondage")) {
 }
 
 if (message.content.startsWith(prefix + "imp")) {
-    if(message.member.hasPermission("MANAGE_MESSAGES")){
+    if(!message.author.hasPermission("MANAGE_MESSAGES")){
         let args = message.content.split(" ").slice(1);
         let thingToEcho = args.join(" ")
         var embed1 = new Discord.RichEmbed()
